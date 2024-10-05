@@ -9,12 +9,26 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  height: 100vh;
-}
-
 img {
   max-width: 100%;
   border-radius: 60px;
+}
+
+body {
+  background: linear-gradient(to bottom, #000139, #fa00bb);
+  background-size: 100% 3350px;
+  animation: gradient 60s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 

@@ -6,15 +6,16 @@ import Projeto3 from '../../assets/projeto3.png'
 import Projeto5 from '../../assets/projeto5.png'
 import Projeto6 from '../../assets/projeto6.jpeg'
 import { BsInstagram } from "react-icons/bs";
-import { BsEnvelope } from "react-icons/bs";
+import { HiOutlineMail } from "react-icons/hi";
 import { BsLinkedin } from "react-icons/bs";
-import { BsFiletypeHtml } from "react-icons/bs";
-import { BsFiletypeCss } from "react-icons/bs";
-import { BsFiletypeJs } from "react-icons/bs";
-import { BsFiletypePy } from "react-icons/bs";
+import { FaCss3 } from "react-icons/fa";
+import { FaJs } from "react-icons/fa";
+import { AiOutlinePython } from "react-icons/ai";
 import { BsFiletypeJsx } from "react-icons/bs";
-import { BsFiletypeSass } from "react-icons/bs";
+import { MdHtml } from "react-icons/md";
+import { FaSass } from "react-icons/fa";
 import { BsGit } from "react-icons/bs";
+import { FaReact } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
 
@@ -30,13 +31,8 @@ function Home() {
             });
         });
 
-        const elements = document.querySelectorAll(".rolagem");
-        elements.forEach((element) => myObserver.observe(element));
-
-        return () => {
-            elements.forEach((element) => myObserver.unobserve(element));
-        };
-    }, []);
+    
+    }, );
 
     return (
         <main>
@@ -47,20 +43,20 @@ function Home() {
                         <img src={MinhaFoto} alt="" className="" />
                     </div>
 
-                    <div className="text-white space-y-6">
+                    <div className="text-white space-y-6 ">
                         <h2 className="text-4xl">Estudante de <span className="text-blue-900">ENGENHARIA DE SOFTWARE</span></h2>
                         <p>Graduando em Engenharia de Software, busco oportunidades desafiadoras na área, onde possa aplicar meus conhecimentos acadêmicos e habilidades técnicas, contribuindo para o desenvolvimento de soluções inovadoras e eficientes.</p>
                         <p>Estou motivado a integrar equipes dinâmicas e colaborativas, visando meu crescimento profissional e a entrega de resultados de excelência.</p>
-                        <div className="flex space-x-4">
+                        <div className="flex gap-5 flex-row-reverse ">
                             
                             <Link to="https://www.instagram.com/mat_ricciotti/">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
+                                <button className="w-12 h-12 rounded-full  bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
                                     <BsInstagram className="text-black text-2xl" />
                                 </button>
                             </Link>
                             <Link to="mailto:matheus.ricciottil@gmail.com">
                                 <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <BsEnvelope className="text-black text-2xl" />
+                                    <HiOutlineMail className="text-black text-2xl" />
                                 </button>
                             </Link>
                             <Link to="https://www.linkedin.com/in/matheus-ricciotti-55a087302/">
@@ -118,26 +114,29 @@ function Home() {
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-4xl text-white mb-10">MINHAS SKILLS</h2>
                     <div className="flex flex-wrap justify-center gap-8">
-                        <div className="p-10 bg-white ">
-                            <BsFiletypeHtml className="text-6xl text-sky-900" />
+                        <div className="p-10 bg-white">
+                        <MdHtml className="text-6xl text-sky-900"/>
                         </div>
-                        <div className="p-10 bg-white ">
-                            <BsFiletypeCss className="text-6xl text-sky-900" />
+                        <div className="p-10 bg-white">
+                        <FaCss3 className="text-6xl text-sky-900"/>
                         </div>
-                        <div className="p-10 bg-white ">
-                            <BsFiletypeJs className="text-6xl text-sky-900" />
+                        <div className="p-10 bg-white">
+                        <FaJs className="text-6xl text-sky-900"/>
                         </div>
-                        <div className="p-10 bg-white ">
-                            <BsFiletypePy className="text-6xl text-sky-900" />
+                        <div className="p-10 bg-white">
+                        <AiOutlinePython className="text-6xl text-sky-900"/>
                         </div>
                         <div className="p-10 bg-white ">
                             <BsFiletypeJsx className="text-6xl text-sky-900" />
                         </div>
-                        <div className="p-10 bg-white ">
-                            <BsFiletypeSass className="text-6xl text-sky-900" />
+                        <div className="p-10 bg-white">
+                        <FaSass className="text-6xl text-sky-900"/>
                         </div>
                         <div className="p-10 bg-white ">
                             <BsGit className="text-6xl text-sky-900" />
+                        </div>
+                        <div className="p-10 bg-white ">
+                            <FaReact className="text-6xl text-sky-900" />
                         </div>
                     </div>
                 </div>
@@ -173,22 +172,22 @@ function Home() {
             <section className="py-20  bg-gray-900/70 " id="contato">
                 <div className="max-w-7xl mx-auto text-center">
                     <div className="flex justify-center space-x-4 ">
-                        <Link to="https://api.whatsapp.com/send/?phone=11940111150&text&type=phone_number&app_absent=0">
+                        <Link to="https://api.whatsapp.com/send/?phone=11981717243&text&type=phone_number&app_absent=0">
                             <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
                                 <BsWhatsapp className="text-black text-2xl " />
                             </button>
                         </Link>
-                        <Link to="mailto:matheusbortolol@hotmail.com">
+                        <Link to="mailto:matheus.ricciotti@gmail.com">
                             <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                <BsEnvelope className="text-black text-2xl" />
+                                <HiOutlineMail className="text-black text-2xl" />
                             </button>
                         </Link>
-                        <Link to="https://www.linkedin.com/in/matheus-bortolotto-ba4b84298/">
+                        <Link to="https://www.linkedin.com/in/matheus-ricciotti-55a087302/">
                             <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
                                 <BsLinkedin className="text-black text-2xl" />
                             </button>
                         </Link>
-                        <Link to="https://github.com/Matheus-Bortolotto">
+                        <Link to="https://github.com/mricciotti">
                             <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
                                 <BsGithub className="text-black text-2xl" />
                             </button>

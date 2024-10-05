@@ -4,7 +4,8 @@ import Logo from '../../assets/logo.png'
 import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
-import { BsEnvelope } from "react-icons/bs";
+import { HiOutlineMail } from "react-icons/hi";
+
 
 
 function Footer() {
@@ -18,7 +19,7 @@ function Footer() {
                     <div className="flex space-x-4 text-white ">
                         <Link to="mailto:matheus.ricciottil@gmail.com">
                             <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                <BsEnvelope className="text-black text-2xl" />
+                                <HiOutlineMail className="text-black text-2xl" />
                             </button>
                         </Link>
                         <Link to="https://www.instagram.com/mat_ricciotti/">
