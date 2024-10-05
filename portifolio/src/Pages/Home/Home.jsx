@@ -18,6 +18,7 @@ import { BsGit } from "react-icons/bs";
 import { FaReact } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
+import ProjectList from '../../Componentes/Projetos/ProjectList'; // Importar o novo componente ProjectList
 
 function Home() {
     useEffect(() => {
@@ -30,9 +31,14 @@ function Home() {
                 }
             });
         });
-
-    
     }, );
+    
+    const projects = [
+        { title: "Projeto 2", image: Projeto2, link: "https://challenge-formula-e-phi.vercel.app/" },
+        { title: "Projeto 3", image: Projeto3, link: "https://global-solution-steel.vercel.app/" },
+        { title: "Projeto 5", image: Projeto5, link: "https://cp2-front-end.vercel.app/" },
+        { title: "Projeto 6", image: Projeto6, link: "https://workshop-de-html-e-css.vercel.app/" },
+    ];
 
     return (
         <main>
@@ -75,7 +81,7 @@ function Home() {
                 </div>
             </section>
  {/* Seção Portfólio */}
- <section className="py-20  bg-gray-900/70 " id="projetos">
+ {/* <section className="py-20  bg-gray-900/70 " id="projetos">
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-4xl text-white mb-10">MEU PORTFÓLIO</h2>
                     <div className="flex flex-wrap justify-around gap-8">
@@ -106,6 +112,12 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section> */}
+            <section className="py-20 rolagem opacity-0 transition-opacity duration-700" id="projetos">
+                <div className="max-w-7xl mx-auto text-center">
+                    <h2 className="text-4xl text-white mb-10">MEUS <span className="text-green-500">PROJETOS.</span></h2>
+                    <ProjectList projects={projects} />
                 </div>
             </section>
 
