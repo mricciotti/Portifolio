@@ -15,7 +15,7 @@ function Header() {
 
     return (
         <>
-            <header className="p-10 bg-gray-900/70">
+            <header className="p-10 ">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div className="w-64 h-64" id="logo">
                         <Link to="#">

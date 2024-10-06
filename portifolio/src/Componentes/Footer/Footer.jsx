@@ -10,7 +10,7 @@ import { HiOutlineMail } from "react-icons/hi";
 
 function Footer() {
     return (
-        <footer className="p-10 bg-gray-900/70 text-white">
+        <footer className="p-10  text-white">
             <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center">
                     <div className="w-64 h-64">

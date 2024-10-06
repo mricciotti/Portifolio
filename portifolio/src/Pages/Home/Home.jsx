@@ -1,38 +1,21 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import MinhaFoto from '../../assets/minha-foto.jpg'
-import Projeto2 from '../../assets/projeto2.png'
-import Projeto3 from '../../assets/projeto3.png'
-import Projeto5 from '../../assets/projeto5.png'
-import Projeto6 from '../../assets/projeto6.jpeg'
-import { BsInstagram } from "react-icons/bs";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsLinkedin } from "react-icons/bs";
-import { FaCss3 } from "react-icons/fa";
-import { FaJs } from "react-icons/fa";
+import Projeto2 from '../../assets/projeto2.png';
+import Projeto3 from '../../assets/projeto3.png';
+import Projeto5 from '../../assets/projeto5.png';
+import Projeto6 from '../../assets/projeto6.jpeg';
+import { MdHtml } from "react-icons/md"; 
+import { FaCss3, FaJs, FaSass, FaReact } from "react-icons/fa";
 import { AiOutlinePython } from "react-icons/ai";
-import { BsFiletypeJsx } from "react-icons/bs";
-import { MdHtml } from "react-icons/md";
-import { FaSass } from "react-icons/fa";
-import { BsGit } from "react-icons/bs";
-import { FaReact } from "react-icons/fa";
-import { BsGithub } from "react-icons/bs";
-import { BsWhatsapp } from "react-icons/bs";
-import ProjectList from '../../Componentes/Projetos/ProjectList'; // Importar o novo componente ProjectList
+import { BsFiletypeJsx, BsGit } from "react-icons/bs";
+import ProjectList from '../../Componentes/Projetos/ProjectList';
+import SkillList from '../../Componentes/Skills/SkillList';
+import Sobre from '../../Componentes/Sobre/Sobre'; 
+import Contato from '../../Componentes/Contato/Contato'
+
 
 function Home() {
-    useEffect(() => {
-        const myObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("opacity-100");
-                } else {
-                    entry.target.classList.remove("opacity-100");
-                }
-            });
-        });
-    }, );
-    
+
+
     const projects = [
         { title: "Projeto 2", image: Projeto2, link: "https://challenge-formula-e-phi.vercel.app/" },
         { title: "Projeto 3", image: Projeto3, link: "https://global-solution-steel.vercel.app/" },
@@ -40,173 +23,39 @@ function Home() {
         { title: "Projeto 6", image: Projeto6, link: "https://workshop-de-html-e-css.vercel.app/" },
     ];
 
+    const skills = [
+        { name: "HTML", icon: MdHtml }, 
+        { name: "CSS", icon: FaCss3 },
+        { name: "JavaScript", icon: FaJs },
+        { name: "Python", icon: AiOutlinePython },
+        { name: "JSX", icon: BsFiletypeJsx },
+        { name: "Sass", icon: FaSass },
+        { name: "Git", icon: BsGit },
+        { name: "React", icon: FaReact },
+    ];
+
     return (
         <main>
             {/* Seção Sobre */}
-            <section className="py-20 bg-gray-900/70 " id="sobre">
-                <div className="max-w-7xl mx-auto flex gap-16 flex-row-reverse">
-                    <div className="w-64 ">
-                        <img src={MinhaFoto} alt="" className="" />
-                    </div>
+            <Sobre />  
 
-                    <div className="text-white space-y-6 ">
-                        <h2 className="text-4xl">Estudante de <span className="text-blue-900">ENGENHARIA DE SOFTWARE</span></h2>
-                        <p>Graduando em Engenharia de Software, busco oportunidades desafiadoras na área, onde possa aplicar meus conhecimentos acadêmicos e habilidades técnicas, contribuindo para o desenvolvimento de soluções inovadoras e eficientes.</p>
-                        <p>Estou motivado a integrar equipes dinâmicas e colaborativas, visando meu crescimento profissional e a entrega de resultados de excelência.</p>
-                        <div className="flex gap-5 flex-row-reverse ">
-                            
-                            <Link to="https://www.instagram.com/mat_ricciotti/">
-                                <button className="w-12 h-12 rounded-full  bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <BsInstagram className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                            <Link to="mailto:matheus.ricciottil@gmail.com">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <HiOutlineMail className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                            <Link to="https://www.linkedin.com/in/matheus-ricciotti-55a087302/">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <BsLinkedin className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                            <Link to="https://github.com/mricciotti">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <BsGithub className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                            
-                        </div>
-                    </div>
-                </div>
-            </section>
- {/* Seção Portfólio */}
- {/* <section className="py-20  bg-gray-900/70 " id="projetos">
+            {/* Seção Portfólio */}
+            <section className="py-20" id="projetos">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-4xl text-white mb-10">MEU PORTFÓLIO</h2>
-                    <div className="flex flex-wrap justify-around gap-8">
-                        
-                        <div className="w-80 h-96 bg-cover bg-center rounded-3xl shadow-lg relative" style={{ backgroundImage: `url(${Projeto2})` }}>
-                            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-3xl">
-                                <p className="text-white font-bold text-xl">Projeto 1</p>
-                                <Link to="https://challenge-formula-e-phi.vercel.app/" className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded-lg">Ver Mais</Link>
-                            </div>
-                        </div>
-                        <div className="w-80 h-96 bg-cover bg-center rounded-3xl shadow-lg relative" style={{ backgroundImage: `url(${Projeto3})` }}>
-                            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-3xl">
-                                <p className="text-white font-bold text-xl">Projeto 2</p>
-                                <Link to="https://global-solution-steel.vercel.app/" className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded-lg">Ver Mais</Link>
-                            </div>
-                        </div>
-                        
-                        <div className="w-80 h-96 bg-cover bg-center rounded-3xl shadow-lg relative" style={{ backgroundImage: `url(${Projeto5})` }}>
-                            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-3xl">
-                                <p className="text-white font-bold text-xl">Projeto 3</p>
-                                <Link to="https://cp2-front-end.vercel.app/" className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded-lg">Ver Mais</Link>
-                            </div>
-                        </div>
-                        <div className="w-80 h-96 bg-cover bg-center rounded-3xl shadow-lg relative" style={{ backgroundImage: `url(${Projeto6})` }}>
-                            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-3xl">
-                                <p className="text-white font-bold text-xl">Projeto 4</p>
-                                <Link to="https://workshop-de-html-e-css.vercel.app/" className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded-lg">Ver Mais</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
-            <section className="py-20 rolagem opacity-0 transition-opacity duration-700" id="projetos">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-4xl text-white mb-10">MEUS <span className="text-green-500">PROJETOS.</span></h2>
+                    <h2 className="text-4xl text-white mb-10">MEUS PROJETOS</h2>
                     <ProjectList projects={projects} />
                 </div>
             </section>
 
             {/* Seção Especialidades */}
-            <section className="py-20 bg-gray-900/70 " id="especiliadades">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-4xl text-white mb-10">MINHAS SKILLS</h2>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        <div className="p-10 bg-white">
-                        <MdHtml className="text-6xl text-sky-900"/>
-                        </div>
-                        <div className="p-10 bg-white">
-                        <FaCss3 className="text-6xl text-sky-900"/>
-                        </div>
-                        <div className="p-10 bg-white">
-                        <FaJs className="text-6xl text-sky-900"/>
-                        </div>
-                        <div className="p-10 bg-white">
-                        <AiOutlinePython className="text-6xl text-sky-900"/>
-                        </div>
-                        <div className="p-10 bg-white ">
-                            <BsFiletypeJsx className="text-6xl text-sky-900" />
-                        </div>
-                        <div className="p-10 bg-white">
-                        <FaSass className="text-6xl text-sky-900"/>
-                        </div>
-                        <div className="p-10 bg-white ">
-                            <BsGit className="text-6xl text-sky-900" />
-                        </div>
-                        <div className="p-10 bg-white ">
-                            <FaReact className="text-6xl text-sky-900" />
-                        </div>
-                    </div>
+            <section className="py-20 " id="especialidades">
+                <div className="max-w-7xl mx-auto text-center ">
+                    <h2 className="text-4xl text-white mb-10 ">MINHAS SKILLS</h2>
+                    <SkillList skills={skills}  /> {/* Renderizar SkillList com dados */}
                 </div>
-            </section>
-            
-            <section id="contact" className="text-center py-10 bg-gray-900/70">
-                <h2 className="text-3xl mb-6 text-white">ENTRE EM CONTATO</h2>
-                <form className="flex flex-col items-center">
-                        <input
-                        type="text"
-                        placeholder="Nome"
-                        className="my-2 w-1/2 px-4 py-2 border border-gray-300 rounded-lg"
-                        />
-                        <input
-                        type="email"
-                        placeholder="Email"
-                        className="my-2 w-1/2 px-4 py-2 border border-gray-300 rounded-lg"
-                        />
-                        <textarea
-                        placeholder="Mensagem"
-                        className="my-2 w-1/2 px-4 py-2 border border-gray-300 rounded-lg"
-                        />
-                        <button
-                        type="submit"
-                        className="mt-4 w-1/6 py-2 bg-sky-900 text-white rounded-full hover:bg-sky-700 transition-colors duration-300 cursor-pointer"
-                        >
-                        Enviar
-                        </button>
-                </form>
             </section>
 
-            {/* Seção Contato */}
-            <section className="py-20  bg-gray-900/70 " id="contato">
-                <div className="max-w-7xl mx-auto text-center">
-                    <div className="flex justify-center space-x-4 ">
-                        <Link to="https://api.whatsapp.com/send/?phone=11981717243&text&type=phone_number&app_absent=0">
-                            <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                <BsWhatsapp className="text-black text-2xl " />
-                            </button>
-                        </Link>
-                        <Link to="mailto:matheus.ricciotti@gmail.com">
-                            <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                <HiOutlineMail className="text-black text-2xl" />
-                            </button>
-                        </Link>
-                        <Link to="https://www.linkedin.com/in/matheus-ricciotti-55a087302/">
-                            <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                <BsLinkedin className="text-black text-2xl" />
-                            </button>
-                        </Link>
-                        <Link to="https://github.com/mricciotti">
-                            <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                <BsGithub className="text-black text-2xl" />
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <Contato />  
         </main>
     );
 }
