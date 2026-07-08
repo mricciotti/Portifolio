@@ -55,8 +55,8 @@ O servidor de desenvolvimento estará rodando em `http://localhost:3000` .
 
 Caso tenha sugestões ou deseje conversar sobre oportunidades de colaboração, sinta-se à vontade para entrar em contato:
 
-- Email: [matheusbortolol@hotmail.com](mailto:matheus.ricciotti@gmail.com)
-- LinkedIn: [linkedin.com/in/matheus-bortolotto-ba4b84298/]([https://www.linkedin.com/in/matheus-bortolotto-ba4b84298/](https://www.linkedin.com/in/matheus-ricciotti-55a087302/))
+- Email: [matheus.ricciotti@gmail.com](mailto:matheus.ricciotti@gmail.com)
+- LinkedIn: [https://www.linkedin.com/in/matheus-ricciotti-55a087302/]([https://www.linkedin.com/in/matheus-ricciotti-55a087302/)
 
   ## Vercel
   Este é o link do vercel para você dar uma olhada: 'https://portifolio-xi-mocha-84.vercel.app/'

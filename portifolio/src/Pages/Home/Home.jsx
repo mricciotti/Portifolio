@@ -39,19 +39,23 @@ function Home() {
             {/* Seção Sobre */}
             <Sobre />  
 
-            {/* Seção Portfólio */}
-            <section className="py-20" id="projetos">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-4xl text-white mb-10">MEUS PROJETOS</h2>
-                    <ProjectList projects={projects} />
+            {/* Seção Especialidades */}
+                <section className="py-20 " id="especialidades">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="bg-blue-950 rounded-2xl py-[120px] px-10 text-center shadow-2xl ring-1 ring-white/5">
+                                <h2 className="text-3xl md:text-4xl text-white mb-8 md:mb-10 ">MINHAS SKILLS</h2>
+                        <SkillList skills={skills}  /> {/* Renderizar SkillList com dados */}
+                    </div>
                 </div>
             </section>
 
-            {/* Seção Especialidades */}
-            <section className="py-20 " id="especialidades">
-                <div className="max-w-7xl mx-auto text-center ">
-                    <h2 className="text-4xl text-white mb-10 ">MINHAS SKILLS</h2>
-                    <SkillList skills={skills}  /> {/* Renderizar SkillList com dados */}
+            {/* Seção Portfólio */}
+                <section className="py-20" id="projetos">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="bg-blue-950 rounded-2xl py-[120px] px-10 text-center shadow-2xl ring-1 ring-white/5">
+                                <h2 className="text-3xl md:text-4xl text-white mb-8 md:mb-10">MEUS PROJETOS</h2>
+                        <ProjectList projects={projects} />
+                    </div>
                 </div>
             </section>
 
