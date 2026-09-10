@@ -1,53 +1,62 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Logo from '../../assets/logo.png'
-import { BsInstagram } from "react-icons/bs";
-import { BsLinkedin } from "react-icons/bs";
-import { BsGithub } from "react-icons/bs";
-import { HiOutlineMail } from "react-icons/hi";
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs"
+import { HiOutlineMail } from "react-icons/hi"
+import { ArrowUp } from "lucide-react"
+import { scrollToSection } from "../../lib/smoothScroll"
 
+const CONTACT_EMAIL = "matheus.ricciotti@gmail.com"
 
+const SOCIAL_LINKS = [
+  { label: "E-mail", href: `mailto:${CONTACT_EMAIL}`, icon: HiOutlineMail },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/matheus-ricciotti-55a087302/", icon: BsLinkedin },
+  { label: "GitHub", href: "https://github.com/mricciotti", icon: BsGithub },
+  { label: "Instagram", href: "https://www.instagram.com/mat_ricciotti/", icon: BsInstagram },
+]
 
 function Footer() {
-    return (
-        <footer className="p-10  text-white">
-            <div className="max-w-7xl mx-auto">
-                    <div className="bg-blue-950 rounded-2xl py-12 md:py-[120px] px-6 md:px-10 shadow-2xl ring-1 ring-white/5">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div className="w-40 h-40 md:w-64 md:h-64">
-                            <img src={Logo} alt="Minha logo" className="w-full h-full" />
-                        </div>
-                        <div className="flex space-x-4 text-white ">
-                            <Link to="mailto:matheus.ricciottil@gmail.com">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <HiOutlineMail className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                            <Link to="https://www.instagram.com/mat_ricciotti/">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <BsInstagram className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                            <Link to="https://www.linkedin.com/in/matheus-ricciotti-55a087302/">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <BsLinkedin className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                            <Link to="https://github.com/mricciotti">
-                                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                                    <BsGithub className="text-black text-2xl" />
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
+  const year = new Date().getFullYear()
 
-                    <div className="border-t border-sky-900 mt-6 pt-4 text-center">
-                        <p><i className="bi bi-envelope-fill"></i> <Link to="mailto:matheus.ricciottil@gmail.com" className="text-white">matheus.ricciottil@gmail.com</Link></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
-};
+  return (
+    <footer className="border-t border-white/5 py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 sm:px-8">
+        <span className="font-display text-lg font-bold text-white">
+          <span className="gradient-text">MR</span>
+          <span className="text-white/50">.dev</span>
+        </span>
 
-export default Footer;
+        <div className="flex gap-4">
+          {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              className="social-btn"
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noreferrer" : undefined}
+            >
+              <Icon size={18} />
+            </a>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-3 text-center text-sm text-white/40">
+          <p>
+            © {year} Matheus Ricciotti ·{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-neon-cyan">
+              {CONTACT_EMAIL}
+            </a>
+          </p>
+          <button
+            type="button"
+            onClick={() => scrollToSection("home")}
+            className="inline-flex items-center gap-1 text-white/40 transition-colors hover:text-neon-cyan"
+          >
+            Voltar ao topo
+            <ArrowUp size={14} />
+          </button>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer

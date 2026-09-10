@@ -6,36 +6,74 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-padding-top: 96px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: theme("colors.night.950");
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 img {
   max-width: 100%;
-  border-radius: 60px;
 }
 
-body {
-  /* Futuristic blue animated background */
-  background: linear-gradient(135deg, #07102a 0%, #0b3b83 40%, #1e3a8a 100%);
-  background-size: 200% 200%;
-  animation: gradient 25s ease infinite;
-  min-height: 100vh;
+::selection {
+  background-color: theme("colors.neon.cyan");
+  color: theme("colors.night.950");
 }
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
+@layer components {
+  .font-display {
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  .glass-panel {
+    @apply relative rounded-3xl border border-white/10 bg-white/[0.03] shadow-2xl shadow-black/40 backdrop-blur-xl;
+  }
+
+  .section-shell {
+    @apply mx-auto max-w-6xl px-6 py-20 sm:px-8 md:py-28;
+  }
+
+  .section-eyebrow {
+    @apply font-display text-sm font-medium uppercase tracking-[0.3em] text-neon-cyan;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-semibold text-white sm:text-4xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-magenta bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-neon-cyan to-neon-purple px-6 py-3 font-display text-sm font-semibold text-night-950 transition-transform duration-300 hover:scale-105 hover:shadow-glow-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-display text-sm font-semibold text-white transition-colors duration-300 hover:border-neon-cyan/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan;
+  }
+
+  .social-btn {
+    @apply flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-neon-cyan/50 hover:text-neon-cyan hover:shadow-glow-cyan;
+  }
+}

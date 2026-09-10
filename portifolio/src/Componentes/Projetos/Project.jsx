@@ -1,16 +1,35 @@
-// Project.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { ExternalLink } from "lucide-react"
 
-function Project({ title, image, link }) {
-    return (
-        <div className="w-64 sm:w-72 md:w-80 h-64 sm:h-80 md:h-96 bg-cover bg-center rounded-3xl shadow-lg relative" style={{ backgroundImage: `url(${image})` }}>
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-3xl">
-                <p className="text-white font-bold text-xl">{title}</p>
-                <a href={link} className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded-lg" target="_blank" rel="noreferrer">Ver Mais</a>
-            </div>
-        </div>
-    );
+function Project({ title, description, image, link }) {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+      className="group glass-panel relative block aspect-[4/3] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-purple focus-visible:-translate-y-1 focus-visible:shadow-glow-purple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan"
+    >
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/60 to-transparent" />
+
+      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-5">
+        <h3 className="font-display text-lg font-semibold text-white">
+          {title}
+        </h3>
+        <p className="max-h-0 overflow-hidden text-sm text-white/70 opacity-0 transition-all duration-300 group-hover:max-h-20 group-hover:opacity-100 group-focus-visible:max-h-20 group-focus-visible:opacity-100">
+          {description}
+        </p>
+        <span className="inline-flex items-center gap-1 text-sm font-medium text-neon-cyan opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+          Ver projeto
+          <ExternalLink size={14} />
+        </span>
+      </div>
+    </a>
+  )
 }
 
-export default Project;
+export default Project

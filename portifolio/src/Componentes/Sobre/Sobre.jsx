@@ -1,58 +1,56 @@
-// src/Componentes/Sobre/Sobre.jsx
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs"
+import { HiOutlineMail } from "react-icons/hi"
+import Reveal from "../UI/Reveal"
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { BsInstagram, BsLinkedin, BsGithub } from 'react-icons/bs';
-import { HiOutlineMail } from 'react-icons/hi';
-import MinhaFoto from '../../assets/minha-foto.jpg';
-import logo3 from '../../assets/logo3.png';
+const SOCIAL_LINKS = [
+  { label: "E-mail", href: "mailto:matheus.ricciotti@gmail.com", icon: HiOutlineMail },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/matheus-ricciotti-55a087302/", icon: BsLinkedin },
+  { label: "GitHub", href: "https://github.com/mricciotti", icon: BsGithub },
+  { label: "Instagram", href: "https://www.instagram.com/mat_ricciotti/", icon: BsInstagram },
+]
 
 function Sobre() {
   return (
-  <section className="py-12 md:py-20" id="sobre">
-      <div className="max-w-7xl mx-auto">
-    <div className="bg-blue-950 rounded-2xl py-12 md:py-[120px] px-6 md:px-10 flex flex-col md:flex-row gap-8 items-center justify-center shadow-2xl ring-1 ring-white/5">
-          <div className="w-72 md:w-80 flex-shrink-0">
-            <img src={logo3} alt="Minha Foto" className="rounded-3xl w-full h-full" />
-          </div>
+    <section id="sobre" className="section-shell">
+      <Reveal>
+        <p className="section-eyebrow text-center md:text-left">Sobre mim</p>
+      </Reveal>
 
-          <div className="text-white space-y-6 max-w-3xl text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl">MATHEUS RICCIOTTI</h2>
-            <p>Tenho 18 anos, estou cursando Engenharia de Software na FIAP,</p>
-            <p className="text-sm md:text-base">Atualmente, busco por me tornar um desenvolvedor FullStack,</p>
-            <p className="text-sm md:text-base">Estou sempre em busca de novos desafios e conhecimentos que me permitam crescer profissionalmente</p>
-            <p className="text-sm md:text-base">Busco um desafio que me permita aplicar meu conhecimento e experiência em um ambiente inovador, onde possa contribuir para o sucesso da empresa e, ao mesmo tempo, continuar me desenvolver como profissional.</p>
+      <Reveal delay={0.1}>
+        <div className="glass-panel mt-6 p-8 md:p-12">
+          <div className="mx-auto max-w-3xl space-y-5 text-center md:text-left">
+            <p className="text-lg text-white/80">
+              Gosto de construir interfaces que unem boa experiência de uso
+              com código bem estruturado — é essa mistura entre design e
+              engenharia que me trouxe para o front-end.
+            </p>
+            <p className="text-white/60">
+              Hoje divido meu tempo entre o trabalho, a faculdade e projetos
+              pessoais, sempre testando ferramentas novas. Estou em busca de
+              novas oportunidades como desenvolvedor front-end, estágio ou
+              júnior, em São Paulo ou remoto — gosto de desafios que me tirem
+              da zona de conforto.
+            </p>
 
-            <div className="flex gap-5 justify-center md:justify-start">
-              <a href="https://www.instagram.com/mat_ricciotti/" aria-label="Instagram">
-                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                  <BsInstagram className="text-black text-2xl" />
-                </button>
-              </a>
-
-              <a href="mailto:matheus.ricciottil@gmail.com" aria-label="Email">
-                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                  <HiOutlineMail className="text-black text-2xl" />
-                </button>
-              </a>
-
-              <a href="https://www.linkedin.com/in/matheus-ricciotti-55a087302/" aria-label="LinkedIn">
-                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                  <BsLinkedin className="text-black text-2xl" />
-                </button>
-              </a>
-
-              <a href="https://github.com/mricciotti" aria-label="GitHub">
-                <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                  <BsGithub className="text-black text-2xl" />
-                </button>
-              </a>
+            <div className="flex justify-center gap-4 pt-2 md:justify-start">
+              {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="social-btn"
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
-  );
+  )
 }
 
-export default Sobre;
+export default Sobre
