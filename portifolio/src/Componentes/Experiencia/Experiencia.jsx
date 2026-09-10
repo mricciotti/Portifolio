@@ -1,0 +1,11 @@
+import { FiBookOpen, FiBriefcase } from 'react-icons/fi'
+
+export default function Experiencia() {
+  return <section id="experiencia" tabIndex={-1} aria-labelledby="experiencia-title" className="section-space page-shell">
+    <div className="section-heading reveal"><p className="eyebrow"><span>02 /</span> MINHA TRAJETÓRIA</p><h2 id="experiencia-title">Aprender. Construir. Evoluir<span className="text-violet">.</span></h2><p>Experiência prática e uma base em constante construção.</p></div>
+    <div className="timeline reveal">
+      <article className="experience-card"><div className="timeline-icon text-cyan"><FiBriefcase aria-hidden="true" /></div><div className="min-w-0"><div className="flex flex-wrap items-center gap-3"><h3 className="font-display text-2xl font-semibold">Editora Globo</h3><span className="tag tag-current"><span className="status-dot" /> Atual</span></div><p className="mt-2 text-sm text-ink">Estagiário de front-end <span className="text-subtle">· Grupo Globo</span></p><p className="mt-4 max-w-3xl leading-relaxed text-muted">Desenvolvo componentes de interface reutilizáveis para um dos maiores portais de conteúdo do Brasil. No dia a dia, trabalho com foco em desempenho, consistência e qualidade, para que as interfaces funcionem bem em grande escala.</p><div className="mt-5 flex flex-wrap gap-2">{['React', 'TypeScript', 'Testes automatizados'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div></div><span className="experience-type">EXPERIÊNCIA</span></article>
+      <article className="experience-card"><div className="timeline-icon text-violet"><FiBookOpen aria-hidden="true" /></div><div className="min-w-0"><h3 className="font-display text-2xl font-semibold">FIAP</h3><p className="mt-2 text-sm text-ink">Engenharia de Software <span className="text-subtle">· Em curso</span></p><p className="mt-4 max-w-3xl leading-relaxed text-muted">Formação com projetos práticos que conectam interfaces, servidores e aplicativos móveis. Uma oportunidade de trabalhar em equipe e levar soluções da ideia à implementação.</p><div className="mt-5 flex flex-wrap gap-2">{['Java / Spring Boot', 'React Native', 'C# / .NET', 'Firebase'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div></div><span className="experience-type">FORMAÇÃO</span></article>
+    </div>
+  </section>
+}

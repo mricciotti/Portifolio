@@ -1,16 +1,26 @@
-// Project.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
+import { FiArrowUpRight } from 'react-icons/fi'
 
-function Project({ title, image, link }) {
-    return (
-        <div className="w-64 sm:w-72 md:w-80 h-64 sm:h-80 md:h-96 bg-cover bg-center rounded-3xl shadow-lg relative" style={{ backgroundImage: `url(${image})` }}>
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-3xl">
-                <p className="text-white font-bold text-xl">{title}</p>
-                <a href={link} className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded-lg" target="_blank" rel="noreferrer">Ver Mais</a>
-            </div>
-        </div>
-    );
+export default function Project({ project }) {
+  return <article className="project-card reveal">
+    <a href={project.link} target="_blank" rel="noreferrer" className="project-image-link" aria-label={'Visitar ' + project.title + ' (abre em nova aba)'}>
+      <div className="project-browser" aria-hidden="true"><span /><span /><span /><span className="browser-address">{new URL(project.link).hostname}</span><FiArrowUpRight /></div>
+      <div className="project-image"><img src={project.image} alt={project.alt} width="1200" height="600" loading="lazy" decoding="async" /><span className="project-open"><FiArrowUpRight /></span></div>
+    </a>
+    <div className="p-6 md:p-7">
+      <div className="flex items-center justify-between gap-2"><p className="text-xs tracking-wide text-muted">{project.category}</p><span className="font-mono text-xs text-subtle">/{project.number}</span></div>
+      <h3 className="mt-3 font-display text-2xl font-semibold"><a className="hover:text-cyan" href={project.link} target="_blank" rel="noreferrer">{project.title}<span className="sr-only"> (abre em nova aba)</span></a></h3>
+      <p className="mt-3 min-h-20 text-sm leading-7 text-muted">{project.description}</p>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-4"><div className="flex flex-wrap gap-2">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div><a className="text-link text-xs" href={project.link} target="_blank" rel="noreferrer" aria-label={'Ver projeto ' + project.title + ' (abre em nova aba)'}>Ver projeto <FiArrowUpRight aria-hidden="true" /></a></div>
+    </div>
+  </article>
 }
 
-export default Project;
+Project.propTypes = {
+  project: PropTypes.shape({
+    title: PropTypes.string.isRequired, category: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired, image: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired, link: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired, number: PropTypes.string.isRequired,
+  }).isRequired,
+}
