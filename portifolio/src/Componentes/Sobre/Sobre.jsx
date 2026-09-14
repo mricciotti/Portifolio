@@ -1,55 +1,58 @@
-// src/Componentes/Sobre/Sobre.jsx
+import { FiArrowUpRight, FiLayers, FiZap } from 'react-icons/fi'
+import OrbitArt from '../Interface/OrbitArt'
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { BsInstagram, BsLinkedin, BsGithub } from "react-icons/bs";
-import { HiOutlineMail } from "react-icons/hi";
-import MinhaFoto from '../../assets/minha-foto.jpg'; // Certifique-se de que o caminho da imagem esteja correto
-
-function Sobre() {
+export default function Sobre() {
   return (
-    <section className="py-20" id="sobre">
-      <div className="max-w-7xl mx-auto flex gap-16 flex-row-reverse">
-        {/* Foto do lado direito */}
-        <div className="w-80">
-          <img src={MinhaFoto} alt="Minha Foto" className="" />
-        </div>
-
-        {/* Texto e Informações */}
-        <div className="text-white space-y-6">
-          <h2 className="text-4xl">MATHEUS RICCIOTTI</h2>
-          <p>Tenho 18 anos, estou cursando Engenharia de Software na FIAP,</p>
-          <p>Atualmente, busco por me tornar um desenvolvedor FullStack,</p>
-          <p>Estou sempre em busca de novos desafios e conhecimentos que me permitam crescer profissionalmente</p>
-          <p>Busco um desafio que me permita aplicar meu conhecimento e experiência em um ambiente inovador, onde possa contribuir para o sucesso da empresa e, ao mesmo tempo, continuar me desenvolver como profissional.</p>
-
-          {/* Ícones de redes sociais */}
-          <div className="flex gap-5 flex-row-reverse">
-            <Link to="https://www.instagram.com/mat_ricciotti/">
-              <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                <BsInstagram className="text-black text-2xl" />
-              </button>
-            </Link>
-            <Link to="mailto:matheus.ricciottil@gmail.com">
-              <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                <HiOutlineMail className="text-black text-2xl" />
-              </button>
-            </Link>
-            <Link to="https://www.linkedin.com/in/matheus-ricciotti-55a087302/">
-              <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                <BsLinkedin className="text-black text-2xl" />
-              </button>
-            </Link>
-            <Link to="https://github.com/mricciotti">
-              <button className="w-12 h-12 rounded-full bg-sky-900 flex justify-center items-center hover:bg-sky-700 transition-colors duration-300 cursor-pointer">
-                <BsGithub className="text-black text-2xl" />
-              </button>
-            </Link>
+    <section
+      id="sobre"
+      tabIndex={-1}
+      aria-labelledby="sobre-title"
+      className="section-space page-shell"
+    >
+      <div className="section-heading reveal">
+        <p className="eyebrow">
+          <span>01 /</span> SOBRE MIM
+        </p>
+        <h2 id="sobre-title">
+          Por trás do código<span className="text-cyan">.</span>
+        </h2>
+      </div>
+      <div className="about-grid reveal">
+        <OrbitArt />
+        <div className="py-2">
+          <h3 className="font-display text-2xl font-medium leading-snug md:text-3xl">
+            Curioso por natureza.
+            <br />
+            <span className="text-muted">Desenvolvedor por escolha.</span>
+          </h3>
+          <p className="mt-5 leading-relaxed text-muted">
+            Sou Matheus, estudante de Engenharia de Software na FIAP e
+            estagiário de front-end na Editora Globo. Gosto de transformar
+            ideias em interfaces claras, úteis e agradáveis de usar.
+          </p>
+          <p className="mt-4 leading-relaxed text-muted">
+            Minha formação também passa por projetos acadêmicos com aplicações
+            web, sistemas de servidor e aplicativos móveis. Essa visão me ajuda
+            a entender o produto além da tela.
+          </p>
+          <p className="mt-4 leading-relaxed text-muted">
+            Busco uma oportunidade de estágio ou júnior em front-end, em São
+            Paulo ou remoto, para contribuir, aprender com o time e construir
+            experiências cada vez melhores.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <span className="tag">
+              <FiLayers aria-hidden="true" /> Interfaces reutilizáveis
+            </span>
+            <span className="tag">
+              <FiZap aria-hidden="true" /> Atenção à performance
+            </span>
           </div>
+          <a href="#contato" className="text-link mt-6">
+            Vamos construir algo juntos <FiArrowUpRight aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>
-  );
+  )
 }
-
-export default Sobre;
