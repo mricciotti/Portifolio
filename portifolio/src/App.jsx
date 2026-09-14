@@ -1,17 +1,16 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from 'react-router-dom'
 import Header from './Componentes/Header/Header'
-import Footer from "./Componentes/Footer/Footer"
+import Footer from './Componentes/Footer/Footer'
 
-
-function App() {
-
+export default function App() {
   return (
     <>
-      <Header/>
-      <Outlet/>
-      <Footer/>
+      <a href="#conteudo" className="skip-link">
+        Pular para o conteúdo
+      </a>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   )
 }
-
-export default App
