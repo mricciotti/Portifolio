@@ -3,9 +3,11 @@ import {
   FiArrowDownRight,
   FiArrowUpRight,
   FiCode,
+  FiDownload,
   FiMapPin,
 } from 'react-icons/fi'
 import MinhaFoto from '../../assets/minha-foto.webp'
+import Curriculo from '../../assets/Currículo.pdf'
 import SocialLinks from '../Interface/SocialLinks'
 
 export default function Hero() {
@@ -49,6 +51,13 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#projetos" className="button button-primary">
                 Explorar projetos <FiArrowDownRight aria-hidden="true" />
+              </a>
+              <a
+                href={Curriculo}
+                download="Curriculo-Matheus-Ricciotti.pdf"
+                className="button button-outline"
+              >
+                Baixar currículo <FiDownload aria-hidden="true" />
               </a>
               <a href="#contato" className="button button-outline">
                 Falar comigo <FiArrowUpRight aria-hidden="true" />
